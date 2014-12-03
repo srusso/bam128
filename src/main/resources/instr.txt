@@ -1,0 +1,28 @@
+In BAM128 there are 7 instructions to manage a 128x128 square matrix (M) initialized with
+zeros, and two position registers (P1 and P2), initialized to zero as well.
+We manipulate M through P1 and P2, which contain the coordinates of the matrix
+element we are working on. P2 holds the current column and P1 the current row.
+We can operate on just one position register at a time, and the default one is P1.
+We call M(P1, P2) the value contained in the P1 row, P2 column of the matrix.
+The maximum value for each matrix cell and for the two position registers is 127.
+
+
+/ start operating on the other position register
+
+! switch the values contained on the position registers, but continue operating on the same one
+
+i Input a value in M(P1, P2)
+
+n Print the numeric value contained in M(P1, P2)
+
+p print the ascii character corresponding to the value contained in M(P1, P2)
+
+*d Increments M(P1, P2) by 2^d, where d must be a digit 0<=d<=9
+
++d Increments the current position register by 2^d, where d must be a digit 0<=d<=9
+
+>d Adds M(P1, P2) to the matrix element 2^d positions ahead (following the path S), d must be a digit 0<=d<=9
+
+(code) Executes the code inside the parentheses until M(P1, P2)!=0
+
+.Comment. Comments must be put between two dots.

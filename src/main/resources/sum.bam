@@ -1,0 +1,23 @@
+.Program that sums two numbers.
+
+*6 .Puts 2^6=64 in M(0,0).
+/ .Use the column position register.
++0 .Increment it by 2^0=1.
+*5*1 .Puts 2^5+2^1=32+2=34 in M(0,1).
+
+.Now we add 127 to the row position register to make it go back from 1 to 0.
+.This happens because 1+127=128 but the overflow makes it 0.
++6+5+4+3+2+1+0
+
+.At this point we are operating again on M(0,0) then.
+
+.The next instruction increments the next cell of the
+matrix, which is M(0,1) by the value contained in M(0,0).
+
+>0
+
+.Now we move to M(0,1) and print its value.
+
++0p
+
+.The letter b is printed, because it's ascii value is 64+34=98.

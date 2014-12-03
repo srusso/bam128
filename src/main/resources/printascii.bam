@@ -1,0 +1,6 @@
+.Example program that prints the ascii values from 33 to 127.
+
+*5*0p .M(0,0)=33, and then prints it.
+
+(*0p) .while(M(0,0)!=0) increment it by 1 and print the ascii value.
+.Note that when M(0,0) is 127, adding 1 to it makes it go back to 0 and end the cycle.

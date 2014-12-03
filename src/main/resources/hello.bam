@@ -1,0 +1,24 @@
+*6*3 .Increments M(0,0) by 2^6=64 and then by 2^3=8.
+p       .Prints the ascii value of M(0,0) that is 64+8=72=H.
+*4*3*2*0p .Increments M(0,0) by 29 and prints 'e' (101). . Remember that 2^0=1.
+*2*1*0pp>0 .Prints 'l' 2 times and then we copy M(0,0)  to M(0,1) for later use.
+*1*0p .Prints 'o'.
+
+.Now M(0,0) equals 111, and we want to print 'space' that is 32 in the ascii table.
+*5*4*0p
+.We incremented M(0,0) by 49 to overflow the maximum value of 127 and return back to 32.
+
+*5*4*2*1*0p .Prints 'W'.
+*4*3p*1*0p .Prints 'or'.
+
+/ .We operate on the column position register (the default is the row).
+
++0 .We increment the column position register by 1 to move to M(0,1).
+
+p .We print 'l', which we stored previously in M(0,1).
+
++0 . We move to M(0,2).
+
+*6*5*2p . Increment M(0,2) by 100 and print d.
+
++0*5*0p .We increment M(0,3) by 33 and print it (it's '!').
