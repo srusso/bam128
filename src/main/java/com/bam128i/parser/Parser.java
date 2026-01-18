@@ -53,15 +53,12 @@ public class Parser {
 		STATE = WAITING_FOR_INSTRUCTION;
 		cycleStack = new Stack<ParenthesesPair>();
 		
-		System.out.println("esecuzione iniziata");
-		
 		if(checkParentheses()){
 			for(pos=0;pos<length && STATE!=STOP;pos++){
 				checkChar(code[pos]);
 			}
 		} else endExecution(WRONG_NUMBER_OF_PARENTHESES);
-		
-		System.out.println("esecuzione finita");
+
 		
 		STATE = WAITING_FOR_INSTRUCTION;
 	}

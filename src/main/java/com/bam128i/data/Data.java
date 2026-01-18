@@ -9,8 +9,6 @@ import javax.swing.JTextArea;
  *
  */
 public class Data {
-	private final boolean debug=false;
-	
 	public static final int MATRIX_DIM=128, PR_MAX=127;
 	
 	/**
@@ -54,8 +52,6 @@ public class Data {
 	 */
 	public void switchC(){
 		CURRENT_PR = 1 - CURRENT_PR;
-		if(debug)
-			System.out.println("Cambio pr corrente");
 	}
 	
 	/**
@@ -64,8 +60,6 @@ public class Data {
 	 * Corresponds to the command '!'.
 	 */
 	public void switchCValues(){
-		if(debug)
-			System.out.println("Swticho i valori pr");
 		int temp=pr[0];
 		pr[0]=pr[1];
 		pr[1]=temp;
@@ -80,9 +74,6 @@ public class Data {
 	 */
 	public void incrementPR(int exp){
 		int amount = power(2, exp);
-		
-		if(debug)
-			System.out.println("Aumento di 2^"+exp+" il pr." + CURRENT_PR);
 		
 		pr[CURRENT_PR]+=amount;
 		pr[CURRENT_PR]=pr[CURRENT_PR]%MATRIX_DIM;
@@ -100,9 +91,6 @@ public class Data {
 		
 		matrix[pr[0]][pr[1]]+=amount;
 		matrix[pr[0]][pr[1]]=matrix[pr[0]][pr[1]]%MATRIX_DIM;
-		
-		if(debug)
-			System.out.println("Incremento di 2^"+exp+". Nuovo valore: " + matrix[pr[0]][pr[1]]);
 	}
 	
 	/**
@@ -129,9 +117,6 @@ public class Data {
 		
 		int pos1=pr[0], pos2=pr[1];
 		
-		if(debug)
-			System.out.println("Muovo avanti di "+amount+" posizioni");
-		
 		for(int i=0;i<amount;i++){
 			pos2++;
 			if(pos2>PR_MAX){
@@ -144,10 +129,6 @@ public class Data {
 		}
 		
 		matrix[pos1][pos2]+=matrix[pr[0]][pr[1]];
-		
-		if(debug)
-			System.out.println("Nuovo valore: " + matrix[pos1][pos2]);
-		
 	}
 	
 	private int power(int base, int exp){
